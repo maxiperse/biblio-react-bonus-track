@@ -3,6 +3,8 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
+import LibroCard from './components/LibroCard'
+import { libros } from './Libros'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -28,6 +30,25 @@ function App() {
         >
           Count is {count}
         </button>
+      </section>
+
+      <div className="ticks"></div>
+
+      <section id="catalogo" aria-labelledby="catalogo-title">
+        <h2 id="catalogo-title">Catálogo</h2>
+        <div style={{ display: 'grid', gap: 12, gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))' }}>
+          {libros.map((l) => (
+            <LibroCard
+              key={l.id}
+              titulo={l.titulo}
+              editorial={l.editorial}
+              anio={l.anio}
+              estado={l.estado}
+              resumen={l.resumen}
+              autores={l.autores}
+            />
+          ))}
+        </div>
       </section>
 
       <div className="ticks"></div>
