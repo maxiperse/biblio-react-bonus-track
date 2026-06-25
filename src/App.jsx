@@ -4,10 +4,32 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
 import ListaLibros from './components/ListaLibros'
+import FiltroEstado from './components/FiltroEstado'
+import BuscadorTitulo from './components/BuscadorTitulo'
 import { libros } from './Libros'
 
 function App() {
   const [count, setCount] = useState(0)
+  const [filtroEstado, setFiltroEstado] = useState('Todos')
+  const [busqueda, setBusqueda] = useState('')
+
+  // Lógica de filtrado segura
+  const librosFiltrados = libros.filter((libro) => {
+    // Filtro por estado
+    const cumpleEstado =
+      filtroEstado === 'Todos' || libro.estado === filtroEstado
+
+    // Filtro por búsqueda: normaliza y compara case-insensitive
+    const termino = busqueda.toLowerCase()
+    const cumpleBusqueda =
+      libro.titulo.toLowerCase().includes(termino) ||
+      (Array.isArray(libro.autores) &&
+        libro.autores.some((autor) =>
+          autor.toLowerCase().includes(termino)
+        ))
+
+    return cumpleEstado && cumpleBusqueda
+  })
 
   return (
     <>
@@ -35,8 +57,19 @@ function App() {
       <div className="ticks"></div>
 
       <section id="catalogo" aria-labelledby="catalogo-title">
-        <h2 id="catalogo-title">Catálogo</h2>
-        <ListaLibros libros={libros} />
+        <h2 id="catalogo-title">Catálogo Digital</h2>
+        <BuscadorTitulo valor={busqueda} onBusquedaChange={setBusqueda} />
+        <FiltroEstado
+          estadoSeleccionado={filtroEstado}
+          onFiltroChange={setFiltroEstado}
+        />
+        {librosFiltrados.length === 0 ? (
+          <div style={{ textAlign: 'center', padding: 24, color: '#666' }}>
+            <p>No hay libros que coincidan con tu búsqueda.</p>
+          </div>
+        ) : (
+          <ListaLibros libros={librosFiltrados} />
+        )}
       </section>
 
       <div className="ticks"></div>
