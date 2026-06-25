@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
-import LibroCard from './components/LibroCard'
+import ListaLibros from './components/ListaLibros'
 import { libros } from './Libros'
 
 function App() {
@@ -36,19 +36,7 @@ function App() {
 
       <section id="catalogo" aria-labelledby="catalogo-title">
         <h2 id="catalogo-title">Catálogo</h2>
-        <div style={{ display: 'grid', gap: 12, gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))' }}>
-          {libros.map((l) => (
-            <LibroCard
-              key={l.id}
-              titulo={l.titulo}
-              editorial={l.editorial}
-              anio={l.anio}
-              estado={l.estado}
-              resumen={l.resumen}
-              autores={l.autores}
-            />
-          ))}
-        </div>
+        <ListaLibros libros={libros} />
       </section>
 
       <div className="ticks"></div>
