@@ -1,0 +1,17 @@
+Etapa 1:
+no use ia en esta etapa.
+
+Etapa 2:
+solo use ia para arreglar un error que habia, si me sirvio, prompt= arreglame el error.
+
+Etapa 3:
+use ia para ayudarme a importar y renderizar app.jsx con la lista de libros, si me sirvio. prompt= actualiza app.jsx para importar y renderizar listalibros .
+
+Etapa 4:
+si use ia creo los componentes de filtro y busqueda. si me sirvio. prompt= ayudame a crear los componentes de filtro y busqueda para la pagina.
+
+Etapa 5:
+si use ia para verificar que no habia ni un error con las etapas anteriores y esta. si me sirvio. prompt= dime si hay algo que cambies dentro del codigo para que se vea mejor o funcione mejor.
+
+Parte A:
+si use ia para ordenar mejor las preguntas y el tema de los componentes y eso. si me sirvio. prompt= actualiza el archivo ANALISIS.md y README1.md para que se vea mas ordenado y facil de entender.
