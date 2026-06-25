@@ -32,6 +32,7 @@ function ListaLibros({ libros }) {
           estado={libro.estado}
           resumen={libro.resumen}
           autores={libro.autores}
+          esNovedad={libro.esNovedad}
         />
       ))}
     </div>
@@ -48,6 +49,7 @@ ListaLibros.propTypes = {
       estado: PropTypes.string,
       resumen: PropTypes.string,
       autores: PropTypes.arrayOf(PropTypes.string),
+      esNovedad: PropTypes.bool,
     })
   ),
 }
